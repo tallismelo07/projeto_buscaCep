@@ -1,19 +1,21 @@
 package application;
 
 import classes.ViaCepService;
+import records.AddressAPI;
 
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) throws IOException, InterruptedException {
-       Scanner sc = new Scanner(System.in);
-        System.out.println("------ MENU ------");
-        System.out.print("Digite sue CEP: ");
-        int digitandoCep = sc.nextInt();
-
         ViaCepService buscandoApi = new ViaCepService();
-        buscandoApi.buscaAPI(digitandoCep);
 
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Digite seu CEP: ");
+        String digitantoCep = sc.nextLine();
+
+        AddressAPI newAddress = buscandoApi.buscaAPI(digitantoCep);
+        System.out.println(newAddress);
+        buscandoApi.salvarJson(newAddress);
     }
 }

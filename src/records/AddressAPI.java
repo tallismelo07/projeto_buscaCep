@@ -1,4 +1,4 @@
 package records;
 
-public record AddressAPI(String cep, String logradouro, String complemento, String bairro, String localidade) {
+public record AddressAPI(String cep,String localidade, String uf, String estado, String regiao, String ddd) {
 }
